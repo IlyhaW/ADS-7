@@ -19,12 +19,12 @@ bool ChList(const SYM& num1, const SYM& num2) {
 
 template<typename T>
 class TPQueue {
-private:
+ private:
     std::list <T> List;
     int head;
     T First;
 
-public:
+ public:
     TPQueue() {
         head = -1;
     }
@@ -32,14 +32,12 @@ public:
         if (head == -1) {
             List.push_front(num);
             head += 1;
-        }
-        else {
+        } else {
             First = List.front();
             if (First.prior == num.prior) {
                 List.push_front(num);
                 List.sort(ChList);
-            }
-            else {
+            } else {
                 List.push_front(num);
                 List.sort(PriorList);
             }
